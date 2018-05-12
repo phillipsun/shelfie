@@ -3,11 +3,17 @@ import React from 'react'
 class Form extends React.Component {
   constructor(props) {
     super(props)
+
+    this.setState = {
+      name: '',
+      price: 0,
+      imgurl: ''
+    }
   }
 
   render() {
     return (
-      <div>I am the Form Component</div>
+      <div>Form</div>
     )
   }
 }

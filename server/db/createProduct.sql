@@ -1,0 +1,1 @@
+INSERT INTO products (product_name, product_imgurl, product_price) VALUES ($1, $2, $3);

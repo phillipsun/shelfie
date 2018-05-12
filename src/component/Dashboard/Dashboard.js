@@ -1,13 +1,18 @@
 import React from 'react'
+import Product from './../Product/Product'
 
 class Dashboard extends React.Component {
   constructor(props) {
     super(props)
+
   }
 
   render() {
     return (
-      <div>I am the Dashboard Component</div>
+      <div>
+        <h1>Dashboard</h1>
+        <Product />
+      </div>
     )
   }
 }
