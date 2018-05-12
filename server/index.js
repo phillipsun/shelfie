@@ -16,7 +16,7 @@ massive( process.env.CONNECTIONSTRING ).then( dbInstance => {
 
 // (READ) GET endpoint to fetch ALL products
 app.get('/api/product', (req, res) => {
-  console.log('Got request!')
+  console.log('Got GET (all) request!')
   const db = req.app.get('db')
   db.products.find().then(product => {
     res.send(product);
@@ -29,7 +29,7 @@ app.get('/api/product', (req, res) => {
 
 // (READ) GET endpoint to fetch product by ID
 app.get('/api/product/:productID', (req, res) => {
-  console.log('Got request!')
+  console.log('Got GET request!')
   const db = req.app.get('db')
   db.getProduct([req.params.productID]).then(product => {
     res.send(product);
@@ -45,7 +45,7 @@ app.post('/api/product', (req, res) => {
   console.log('Got POST request!')
 
   const db = req.app.get('db')
-  
+
   db.createProduct([req.body.name, req.body.img, req.body.price]).then(dbResponse => {
     res.status(201).send('ok')
   })
