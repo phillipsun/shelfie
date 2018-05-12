@@ -15,7 +15,7 @@ massive( process.env.CONNECTIONSTRING ).then( dbInstance => {
 })
 
 // (READ) GET endpoint to fetch ALL products
-app.get('/api/products/', (req, res) => {
+app.get('/api/product', (req, res) => {
   console.log('Got request!')
   const db = req.app.get('db')
   db.products.find().then(product => {
@@ -28,7 +28,7 @@ app.get('/api/products/', (req, res) => {
 });
 
 // (READ) GET endpoint to fetch product by ID
-app.get('/api/products/:productID', (req, res) => {
+app.get('/api/product/:productID', (req, res) => {
   console.log('Got request!')
   const db = req.app.get('db')
   db.getProduct([req.params.productID]).then(product => {
@@ -41,10 +41,12 @@ app.get('/api/products/:productID', (req, res) => {
 });
 
 // (CREATE) POST endpoint to create a new product
-app.post('/api/products', (req, res) => {
-  console.log('Got request!')
+app.post('/api/product', (req, res) => {
+  console.log('Got POST request!')
+
   const db = req.app.get('db')
-  db.createProduct([req.body.product_name, req.body.product_imgurl, req.body.product_price]).then(dbResponse => {
+  
+  db.createProduct([req.body.name, req.body.img, req.body.price]).then(dbResponse => {
     res.status(201).send('ok')
   })
   .catch(err => {

@@ -1,0 +1,7 @@
+.product__img {
+  width: 320px;
+  height: 200px;
+  margin: 0 auto;
+  background-position: 50%;
+  background-size: cover;
+}
