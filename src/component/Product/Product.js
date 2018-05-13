@@ -9,13 +9,13 @@ export default function Product(props) {
   product_imgurl ? null : product_imgurl = noImage;
 
   return (
-    <div className='Product'>
+    <div className='product'>
       <div className='product__img' style={{ backgroundImage: `url(${product_imgurl})` }}></div>
-      <div className='product_box'>
-        <p className='product_title'>{product_name}</p>
-        <p className='product_price'>${product_price}</p>
+      <div className='product__box'>
+        <p className='product__title'>{product_name}</p>
+        <p className='product__price'>${product_price}</p>
       </div>
-      <div className='product_button_box'>
+      <div className='product__button-box'>
         <button onClick={() => props.deleteProduct(product_id)}>Delete</button>
         <button onClick={() => props.editProduct(props.product)}>Edit</button>
       </div>

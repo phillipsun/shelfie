@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import noImage from './../../images/NoImage.png';
+import './../../styles/form.css'
 
 class Form extends Component {
   constructor(props) {
@@ -32,7 +33,7 @@ class Form extends Component {
     img.src = url;
   }
 
-  // validate the number input
+  // Validates the number input for the price field
   numberInput(val) {
     // Automatically adds a zero to the dollars postition if '.' is the first thing in the input
     if (val[0] === '.') {
@@ -61,40 +62,30 @@ class Form extends Component {
     } else if (!cents) {
       val = dollars;
     }
-    // Limits input size so price fits in db
-    if (Number(val) * 100 >= 2147483647) {
-      return;
-    }
+ 
     // Updates state once input is validated
     this.setState({ price: val })
   }
 
-  // takes price input and converts it to a number type
-  numberSubmit(num) {
-    num ? num = Number(num) : num = 0
-    return Math.round(num * 100)
-  }
 
   // submits new product
   handleSubmit() {
     let { name, price, img } = this.state;
     if(name) {
-
       let product = {
         name,
-        price: this.numberSubmit(price),
+        price: price,
         img
       }
 
       axios.post('/api/product', product)
         .then(res => {
-          console.log(product)
           this.props.getInventory();
           this.clearInputs();
         })
         .catch(err => console.log('axios create error', err))
     } else {
-      console.log('you are missing a name and need to handle this user fail');
+      console.log('Product is missing a name');
     }
   }
 
@@ -104,7 +95,7 @@ class Form extends Component {
     if (name) {
       let product = {
         name,
-        price: this.numberSubmit(price),
+        price: price,
         img
       }
       axios.put(`/api/product/${id}`, product)
@@ -114,7 +105,7 @@ class Form extends Component {
         })
         .catch(err => console.log(err))
     } else {
-      console.log('Product is missing a name');
+      console.log('Product does not exist');
     }
   }
 

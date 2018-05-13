@@ -1,10 +1,12 @@
 import React from 'react';
-
+import Logo from './../../images/shelfie_logo.png';
+import './../../styles/header.css'
 
 export default function Header() {
   return (
-    <div className='Header'>
-      <h1>Shelfie</h1>
-    </div>
+    <header className='header'>
+      <img className='header__logo' src={Logo}/>
+      <h1 className='header__app-name'>Shelfie</h1>
+    </header>
   )
 }

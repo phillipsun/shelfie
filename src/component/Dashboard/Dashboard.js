@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import Product from './../Product/Product';
+import './../../styles/dashboard.css'
 
 class Dashboard extends React.Component {
 
@@ -19,7 +20,7 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div className='Dashboard'>
+      <div className='dashboard'>
         {this.props.inventory.map((el) => {
           return <Product key={el.id} product={el} editProduct={this.props.editProduct} deleteProduct={this.deleteProduct} />
         })}

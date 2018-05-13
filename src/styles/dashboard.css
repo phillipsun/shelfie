@@ -1,0 +1,28 @@
+.dashboard {
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@media(min-width: 830px) {
+  .dashboard {
+    width: 375px;
+  }
+}
+
+@media(min-width: 1000px) {
+  .dashboard {
+    width: 475px;
+    margin-left: 5vw;
+  }
+}
+
+@media(min-width: 1200px) {
+  .dashboard {
+    width: 50%;
+  }
+}

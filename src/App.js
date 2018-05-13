@@ -4,6 +4,8 @@ import axios from 'axios';
 import Dashboard from './component/Dashboard/Dashboard'
 import Form from './component/Form/Form'
 import Header from './component/Header/Header'
+import './styles/reset.css'
+import './styles/app.css'
 
 class App extends Component {
   constructor(props) {

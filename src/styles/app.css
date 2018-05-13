@@ -1,0 +1,16 @@
+.App {
+  padding: 100px 0 5px;
+}
+
+@media(min-width: 500px) {
+  .App {
+    padding: 120px 0 25px;
+  }
+}
+
+@media(min-width: 830px) {
+  .App {
+    padding: 150px 0 6vh;
+  }
+}
+
