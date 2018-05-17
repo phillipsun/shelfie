@@ -26,7 +26,7 @@ class App extends Component {
 
   // GET request to retrieve all products
   getInventory() {
-    axios.get('/api/product')
+    axios.get('/api/inventory')
       .then(response => 
         this.setState({ inventory: response.data })
       )
@@ -34,6 +34,8 @@ class App extends Component {
 
   // Handles updating a product
   editProduct(product) {
+    //console.log('set current product')
+    //console.log(product)
     this.setState({
       currentProduct: product
     })

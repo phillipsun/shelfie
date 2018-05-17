@@ -2,10 +2,11 @@ import React from 'react';
 import noImage from './../../images/NoImage.png';
 import './../../styles/product.css'
 
+
 export default function Product(props) {
 
-  let { product_id, product_name, product_price, product_imgurl } = props.product;
-
+  let { product_id, product_name, product_imgurl, product_price } = props.product;
+  // eslint-disable-next-line
   product_imgurl ? null : product_imgurl = noImage;
 
   return (

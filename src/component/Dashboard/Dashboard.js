@@ -21,11 +21,16 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className='dashboard'>
-        {this.props.inventory.map((el) => {
-          return <Product key={el.id} product={el} editProduct={this.props.editProduct} deleteProduct={this.deleteProduct} />
+        {this.props.inventory.map(el => {
+          return <Product 
+                    key={el.product_id} 
+                    product={el} 
+                    editProduct={this.props.editProduct}
+                    deleteProduct={this.deleteProduct}
+                  />
         })}
       </div>
-    );
+    )
   }
 }
 

@@ -5,9 +5,12 @@ module.exports = {
     console.log('Got POST request!')
     const db = req.app.get('db')
     const { product_name, product_imgurl, product_price } = req.body
-  
+    console.log(req.body)
     db.create_product([ product_name, product_imgurl, product_price ])
-      .then( product => res.status(200).send(product) )
+      .then( product => {
+        console.log(product)
+        res.status(200).send(product)
+      })
       .catch( () => res.status(500).send() );
   },
 

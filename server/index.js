@@ -25,7 +25,7 @@ massive( process.env.CONNECTIONSTRING )
 app.post('/api/product', controller.createProduct)
 
 // (READ) GET endpoint to fetch ALL products
-app.get('/api/product', controller.readProducts)
+app.get('/api/inventory', controller.readProducts)
 
 // (READ) GET endpoint to fetch product by ID
 app.get('/api/product/:id', controller.readProduct)
