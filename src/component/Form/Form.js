@@ -28,7 +28,7 @@ class Form extends Component {
     }
   }
 
-  // Validates image input
+  // validate image input
   imageInput(e) {
     var img = new Image();
     img.onload = () => this.setState({ product_imgurl: e });
@@ -36,36 +36,42 @@ class Form extends Component {
     img.src = e;
   }
 
-  // Validates name length
+  // validate length of name input (allows for no name to entered)
   nameInput(text) {
     if (text.length <= 20) {
       this.setState({ product_name: text })
     }
   }
 
-  // Validates the number input for the price field
+  // validate the number input for the price field
   numberInput(val) {
-    // Automatically adds a zero to the dollars postition if '.' is the first thing in the input
+
+    // adds a zero to the dollars postition if '.' is the first thing in the input
     if(val[0] === '.') {
       val = '0' + val
     }
-    // Only allows number input
+
+    // only allows number input
     if(isNaN(Number(val))) {
       return;
     }
-    // Splits dollars and cents apart for individual testing
-    let chop = val.split('.');
-    let dollars = chop[0];
-    let cents = chop[1];
-    // Doesn't allow for dollar amounts to be entered that have unnecessary zeros in the dollar amount
+
+    // convert dollars to cents
+    let split = val.split('.');
+    let dollars = split[0];
+    let cents = split[1];
+
+    // doesn't allow leading zeros
     if(dollars[0] === '0') {
       dollars = '0'
     }
-    // Allows user to enter a '.' to begin adding cents
+
+    // allow decimal points
     if(val.indexOf('.') !== -1) {
       dollars += '.'
     }
-    // Limits cent input to two decimal places
+
+    // limit 2 decimal places
     if(cents && cents[1]) {
       cents = cents[0] + cents[1];
       val = dollars + cents;
@@ -73,11 +79,12 @@ class Form extends Component {
     else if(!cents) {
       val = dollars;
     }
-    // updates state
+
+    // after all of those checks, update state
     this.setState({ product_price: val })
   }
 
-  // Takes price input and converts it to a number type. Also converts amount to pennies for easy db storage
+  // convert price input it to a number type
   numberSubmit(num) {
     num ? num = Number(num) : num = 0
     return Math.round(num)
