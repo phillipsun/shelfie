@@ -141,7 +141,7 @@ class Form extends Component {
 
   render() {
     return (
-      <div className='form'>
+      <div className='form' id="form">
         {this.state.product_imgurl
           ? <div className='form__img-preview' style={{ backgroundImage: `url('${this.state.product_imgurl}')` }}></div>
           : <div className='form__img-preview' style={{ backgroundImage: `url('${noImage}')` }}></div>}
