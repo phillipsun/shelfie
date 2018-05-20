@@ -10,6 +10,8 @@ const app = express()
 app.use(bodyParser.json())
 app.use( cors() )
 
+app.use( express.static( __dirname + '/../build' ) );
+
 const controller = require('./controller')
 
 massive( process.env.CONNECTIONSTRING )
